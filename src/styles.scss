@@ -2,3 +2,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input {
+  @apply border 
+  border-cyan-900 
+  rounded-md 
+  px-2 
+  h-8;
+}
+
+.input-label {
+  @apply flex justify-between text-sm;
+}
+
+.page-elements-gapped {
+  @apply p-4 mx-auto w-11/12 md:w-1/2 flex flex-col gap-2;
+}
