@@ -4,11 +4,15 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
-import { NxWelcomeComponent } from './nx-welcome.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProjectsComponent } from './components/projects/projects.component';
 
 @NgModule({
-  declarations: [AppComponent, NxWelcomeComponent, ProfileComponent],
+  declarations: [
+    AppComponent,
+    ProfileComponent,
+    ProjectsComponent,
+  ],
   imports: [
     BrowserModule,
     FormsModule,

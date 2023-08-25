@@ -1,1 +1,37 @@
-<p>profile works!</p>
+<form
+  [formGroup]="profile"
+  class="page-elements-gapped"
+>
+  <h1 class="text-xl">Profile</h1>
+  <label class="input-label">
+    Name w/ formControlName
+    <input
+      class="input w-1/2"
+      type="text"
+      formControlName="name"
+    />
+  </label>
+
+  <label class="input-label">
+    Name w/ formControl
+    <input
+      class="input w-1/2"
+      type="text"
+      [formControl]="name"
+    />
+  </label>
+
+  <label class="input-label">
+    Quote
+    <input
+      class="input w-1/2"
+      type="text"
+      formControlName="quote"
+    />
+  </label>
+
+  <button class="input flex justify-end items-center" (click)="next()">
+    Go Next
+    <img class="-rotate-90" width="32px" src='./assets/arrow-down--48.svg' alt='' role="presentation"/>
+  </button>
+</form>
