@@ -11,9 +11,9 @@ describe('AppComponent', () => {
     }).compileComponents();
   });
 
-  it(`should have as title 'org'`, () => {
+  it(`should initialize the form`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('org');
+    expect(app.form).toBeTruthy();
   });
 });
