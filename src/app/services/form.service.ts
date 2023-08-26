@@ -1,17 +1,33 @@
 import { Injectable, inject, effect, untracked } from "@angular/core";
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormBuilder, FormControl, UntypedFormGroup, UntypedFormArray } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
 import { startWith } from "rxjs";
+
+type IProfileForm = FormGroup<{
+  name: FormControl<string | null>,
+  quote: FormControl<string | null>,
+  favourite: FormGroup<{
+      game: FormControl<string | null>,
+  }>
+}>;
+
+type IProjectForm = FormGroup<{
+  name: FormControl<string | null>;
+  start: FormControl<string | null>;
+}>;
 
 @Injectable({
   providedIn: 'root'
 })
 export class FormService {
   builder = inject(FormBuilder);
-  form = this.builder.group({
+  form: FormGroup<{
+    profile: IProfileForm,
+    projects: FormArray<IProjectForm>,
+  }> = this.builder.group({
     profile: this.builder.group({
-      name: new FormControl('Jinzo'),
-      quote: new FormControl(`It'll be done when it's done!`),
+      name: new FormControl('Jinzo', [Validators.min(3)]),
+      quote: new FormControl(`It'll be done when it's done!`, [Validators.min(8)]),
       favourite: this.builder.group({
         game: new FormControl('Rock and Stone')
       })
@@ -28,8 +44,10 @@ export class FormService {
     ])
   });
 
+  // if you have a lot of child forms
+  // these could be broken out into other services
   get profile() {
-    return this.form.get('profile') as UntypedFormGroup;
+    return this.form.get('profile') as IProfileForm;
   }
 
   get name() {
@@ -41,7 +59,7 @@ export class FormService {
   }
 
   get projects() {
-    return this.form.get('projects') as UntypedFormArray;
+    return this.form.get('projects') as FormArray<IProjectForm>;
   }
 
   $ = {

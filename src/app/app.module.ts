@@ -7,6 +7,10 @@ import { appRoutes } from './app.routes';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ReviewComponent } from './components/review/review.component';
+import { StepProfileComponent } from './routes/step-profile/step-profile.component';
+import { StepProjectsComponent } from './routes/step-projects/step-projects.component';
+import { StepReviewComponent } from './routes/step-review/step-review.component';
+import { NavigatorComponent } from './components/navigator/navigator.component';
 
 @NgModule({
   declarations: [
@@ -14,6 +18,10 @@ import { ReviewComponent } from './components/review/review.component';
     ProfileComponent,
     ProjectsComponent,
     ReviewComponent,
+    StepProfileComponent,
+    StepProjectsComponent,
+    StepReviewComponent,
+    NavigatorComponent,
   ],
   imports: [
     BrowserModule,
