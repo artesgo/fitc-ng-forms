@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectsComponent } from './components/projects/projects.component';
+import { ReviewComponent } from './components/review/review.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProfileComponent,
     ProjectsComponent,
+    ReviewComponent,
   ],
   imports: [
     BrowserModule,

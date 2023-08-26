@@ -3,17 +3,18 @@ import { ControlContainer, UntypedFormArray, UntypedFormGroup } from '@angular/f
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-projects',
-  templateUrl: './projects.component.html',
-  styleUrls: ['./projects.component.scss'],
+  selector: 'app-review',
+  templateUrl: './review.component.html',
+  styleUrls: ['./review.component.scss'],
 })
-export class ProjectsComponent {
+export class ReviewComponent {
   container = inject(ControlContainer);
   router = inject(Router);
   form = this.container.control as UntypedFormGroup;
+  profile = this.form.get('profile') as UntypedFormGroup;
   projects = this.form.get('projects') as UntypedFormArray;
 
   next() {
-    this.router.navigate(['review']);
+    this.router.navigate(['profile']);
   }
 }
