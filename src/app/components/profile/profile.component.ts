@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ControlContainer, UntypedFormGroup, FormControl } from '@angular/forms';
+import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-profile',
@@ -7,8 +7,8 @@ import { ControlContainer, UntypedFormGroup, FormControl } from '@angular/forms'
   styleUrls: ['./profile.component.scss'],
 })
 export class ProfileComponent {
-  container = inject(ControlContainer);
-  form = this.container.control as UntypedFormGroup;
-  profile = this.form.get('profile') as UntypedFormGroup;
-  name = this.profile.get('name') as FormControl<string>
+  formService = inject(FormService);
+  profile = this.formService.profile;
+  name = this.profile.controls.name;
+  quote = this.profile.controls.quote;
 }

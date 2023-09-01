@@ -1,26 +1,6 @@
-<div
-  [formGroup]="form"
-  class="page-elements-gapped"
->
+<div class="page-elements-gapped">
   <h1 class="text-xl">Projects in Progress</h1>
-  <ng-container formArrayName="projects" *ngFor="let group of projects.controls, let i = index">
-    <div [formGroupName]="i" class="flex flex-col gap-2">
-      <label class="input-label">
-        Project {{ i + 1 }}
-        <input
-          class="input input-success w-1/2 transition-all"
-          type="text"
-          formControlName="name"
-        />
-      </label>
-      <label class="input-label">
-        Start Date
-        <input
-          class="input input-success w-1/2 transition-all"
-          type="text"
-          formControlName="start"
-        />
-      </label>
-    </div>
+  <ng-container *ngFor="let group of projects.controls, let i = index">
+    <app-project [project]="group" [index]="i"></app-project>
   </ng-container>
 </div>

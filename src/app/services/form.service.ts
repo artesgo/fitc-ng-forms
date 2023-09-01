@@ -3,7 +3,7 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { FormBuilder, FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
 import { startWith } from "rxjs";
 
-type IProfileForm = FormGroup<{
+export type ProfileForm = FormGroup<{
   name: FormControl<string | null>,
   quote: FormControl<string | null>,
   favourite: FormGroup<{
@@ -11,7 +11,7 @@ type IProfileForm = FormGroup<{
   }>
 }>;
 
-type IProjectForm = FormGroup<{
+export type ProjectForm = FormGroup<{
   name: FormControl<string | null>;
   start: FormControl<string | null>;
 }>;
@@ -22,8 +22,8 @@ type IProjectForm = FormGroup<{
 export class FormService {
   builder = inject(FormBuilder);
   form: FormGroup<{
-    profile: IProfileForm,
-    projects: FormArray<IProjectForm>,
+    profile: ProfileForm,
+    projects: FormArray<ProjectForm>,
   }> = this.builder.group({
     profile: this.builder.group({
       name: new FormControl('Jinzo', [Validators.min(3)]),
@@ -47,7 +47,7 @@ export class FormService {
   // if you have a lot of child forms
   // these could be broken out into other services
   get profile() {
-    return this.form.get('profile') as IProfileForm;
+    return this.form.get('profile') as ProfileForm;
   }
 
   get name() {
@@ -59,7 +59,7 @@ export class FormService {
   }
 
   get projects() {
-    return this.form.get('projects') as FormArray<IProjectForm>;
+    return this.form.get('projects') as FormArray<ProjectForm>;
   }
 
   $ = {

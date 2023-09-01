@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { ControlContainer, UntypedFormArray, UntypedFormGroup } from '@angular/forms';
+import { FormService } from '../../services/form.service';
 
 @Component({
   selector: 'app-projects',
@@ -7,7 +7,7 @@ import { ControlContainer, UntypedFormArray, UntypedFormGroup } from '@angular/f
   styleUrls: ['./projects.component.scss'],
 })
 export class ProjectsComponent {
-  container = inject(ControlContainer);
-  form = this.container.control as UntypedFormGroup;
-  projects = this.form.get('projects') as UntypedFormArray;
+  formService = inject(FormService);
+  form = this.formService.form;
+  projects = this.formService.projects;
 }

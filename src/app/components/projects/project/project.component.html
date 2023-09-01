@@ -1,0 +1,18 @@
+<div [formGroup]="project" class="flex flex-col gap-2">
+  <label class="input-label">
+    Project {{ index + 1 }}
+    <input
+      class="input input-success w-1/2 transition-all"
+      type="text"
+      formControlName="name"
+    />
+  </label>
+  <label class="input-label">
+    Start Date
+    <input
+      class="input input-success w-1/2 transition-all"
+      type="text"
+      formControlName="start"
+    />
+  </label>
+</div>
