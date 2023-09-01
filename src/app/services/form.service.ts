@@ -26,8 +26,8 @@ export class FormService {
     projects: FormArray<ProjectForm>,
   }> = this.builder.group({
     profile: this.builder.group({
-      name: new FormControl('Jinzo', [Validators.min(3)]),
-      quote: new FormControl(`It'll be done when it's done!`, [Validators.min(8)]),
+      name: new FormControl('Jinzo', [Validators.minLength(3)]),
+      quote: new FormControl(`It'll be done when it's done!`, [Validators.minLength(8)]),
       favourite: this.builder.group({
         game: new FormControl('Rock and Stone')
       })
@@ -72,6 +72,7 @@ export class FormService {
     const name = this.$.name();
     const quote = untracked(this.$.quote);
     console.log(name, quote);
+    console.log(this.name.errors);
   });
 
   projectChange$ = effect(() => {

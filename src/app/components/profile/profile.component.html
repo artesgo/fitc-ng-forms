@@ -1,32 +1,23 @@
-<div
-  [formGroup]="profile"
-  class="page-elements-gapped"
->
+<div class="page-elements-gapped">
   <h1 class="text-xl">Profile</h1>
-  <label class="input-label">
-    Name w/ formControlName
-    <input
-      class="input input-success w-1/2 transition-all"
-      type="text"
-      formControlName="name"
-    />
-  </label>
 
   <label class="input-label">
-    Name w/ formControl
+    Name
     <input
       class="input input-success w-1/2 transition-all"
-      type="text"
-      [formControl]="name"
-    />
+      type="text" [formControl]="name" />
   </label>
+  <div *ngIf="name.errors && name.errors['minlength']">
+    Please Enter 3 or more Characters for Name.
+  </div>
 
   <label class="input-label">
     Quote
     <input
       class="input input-success w-1/2 transition-all"
-      type="text"
-      formControlName="quote"
-    />
+      type="text" [formControl]="quote" />
   </label>
+  <div *ngIf="quote.errors && quote.errors['minlength']">
+    Please Enter 8 or more Characters for Quote.
+  </div>
 </div>
