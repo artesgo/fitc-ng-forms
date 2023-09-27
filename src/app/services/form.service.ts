@@ -1,6 +1,6 @@
 import { Injectable, inject, effect, untracked } from "@angular/core";
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormBuilder, FormControl, Validators, FormGroup, FormArray } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { startWith } from "rxjs";
 
 export type ProfileForm = FormGroup<{
@@ -47,19 +47,19 @@ export class FormService {
   // if you have a lot of child forms
   // these could be broken out into other services
   get profile() {
-    return this.form.get('profile') as ProfileForm;
+    return this.form.controls.profile;
   }
 
   get name() {
-    return this.profile.get('name') as FormControl<string>;
+    return this.profile.controls.name;
   }
 
   get quote() {
-    return this.profile.get('quote') as FormControl<string>;
+    return this.profile.controls.quote;
   }
 
   get projects() {
-    return this.form.get('projects') as FormArray<ProjectForm>;
+    return this.form.controls.projects;
   }
 
   $ = {
@@ -78,5 +78,5 @@ export class FormService {
   projectChange$ = effect(() => {
     const projects = this.$.projects();
     console.log(projects);
-  })
+  });
 }
