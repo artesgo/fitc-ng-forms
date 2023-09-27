@@ -10,9 +10,10 @@ import { ReviewComponent } from './components/review/review.component';
 import { StepProfileComponent } from './routes/step-profile/step-profile.component';
 import { StepProjectsComponent } from './routes/step-projects/step-projects.component';
 import { StepReviewComponent } from './routes/step-review/step-review.component';
+import { StepNonoComponent } from './routes/step-nono-way/step-nono.component';
 import { NavigatorComponent } from './components/navigator/navigator.component';
-import { StoreModule } from '@ngrx/store';
 import { ProjectComponent } from './components/projects/project/project.component';
+import { NonoComponent } from './components/nono/nono.component';
 
 @NgModule({
   declarations: [
@@ -20,28 +21,20 @@ import { ProjectComponent } from './components/projects/project/project.componen
     ProfileComponent,
     ProjectsComponent,
     ReviewComponent,
+    StepNonoComponent,
     StepProfileComponent,
     StepProjectsComponent,
     StepReviewComponent,
     NavigatorComponent,
     ProjectComponent,
     ProjectComponent,
+    NonoComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
-    StoreModule.forRoot(
-      {},
-      {
-        metaReducers: [],
-        runtimeChecks: {
-          strictActionImmutability: true,
-          strictStateImmutability: true,
-        },
-      }
-    ),
   ],
   providers: [],
   bootstrap: [AppComponent],
