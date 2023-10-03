@@ -10,7 +10,7 @@ export class NonoComponent implements OnInit {
   fb = inject(FormBuilder);
 
   // I have to initialize the form again here otherwise TS complains
-  @Input({ required: true }) form: UntypedFormGroup = this.fb.group({});
+  @Input() form: UntypedFormGroup = this.fb.group({});
 
   // create the child form group
   child = this.fb.group({
