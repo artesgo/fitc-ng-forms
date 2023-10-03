@@ -11,4 +11,6 @@ export class ProfileComponent {
   profile = this.formService.profile;
   name = this.profile.controls.name;
   quote = this.profile.controls.quote;
+  profileReducer$ = this.formService.profileReducer$;
+  profileReducer = this.formService.profileReducer;
 }

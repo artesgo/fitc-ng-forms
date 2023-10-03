@@ -1,7 +1,7 @@
-import { Injectable, inject, effect, untracked } from "@angular/core";
+import { Injectable, inject, effect, untracked, computed } from "@angular/core";
 import { toSignal } from '@angular/core/rxjs-interop';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { startWith } from "rxjs";
+import { map, startWith } from "rxjs";
 
 export type ProfileForm = FormGroup<{
   name: FormControl<string | null>,
@@ -65,7 +65,7 @@ export class FormService {
   $ = {
     name: toSignal(this.name.valueChanges.pipe(startWith(this.name.value))),
     quote: toSignal(this.quote.valueChanges.pipe(startWith(this.quote.value))),
-    projects: toSignal(this.projects.valueChanges)
+    projects: toSignal(this.projects.valueChanges),
   }
 
   nameChange$ = effect(() => {
@@ -78,5 +78,20 @@ export class FormService {
   projectChange$ = effect(() => {
     const projects = this.$.projects();
     console.log(projects);
+  });
+
+  profileReducer$ = this.form.valueChanges.pipe(
+    startWith(this.form.value),
+    map((form) => {
+      return "Scrum Master: Hey " + form.profile?.name +
+        ", when will it be done? <br />"+ form.profile?.name +
+        ": " + form.profile?.quote
+    })
+  );
+
+  profileReducer = computed(() => {
+    return "Scrum Master: Hey " + this.$.name() +
+      ", when will it be done? <br />"+ this.$.name() +
+      ": " + this.$.quote()
   });
 }

@@ -20,4 +20,6 @@
   <div *ngIf="quote.errors && quote.errors['minlength']">
     Please Enter 8 or more Characters for Quote.
   </div>
+  <div [innerHTML]="profileReducer$ | async"></div>
+  <div [innerHTML]="profileReducer()"></div>
 </div>
