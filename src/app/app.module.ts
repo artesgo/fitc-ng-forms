@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { appRoutes } from './app.routes';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { ReviewComponent } from './components/review/review.component';
 import { StepProfileComponent } from './routes/step-profile/step-profile.component';
 import { StepProjectsComponent } from './routes/step-projects/step-projects.component';
 import { StepReviewComponent } from './routes/step-review/step-review.component';
@@ -20,7 +19,6 @@ import { NonoComponent } from './components/nono/nono.component';
     AppComponent,
     ProfileComponent,
     ProjectsComponent,
-    ReviewComponent,
     StepNonoComponent,
     StepProfileComponent,
     StepProjectsComponent,
