@@ -3,6 +3,7 @@ import { StepProfileComponent } from './routes/step-profile/step-profile.compone
 import { StepProjectsComponent } from './routes/step-projects/step-projects.component';
 import { StepReviewComponent } from './routes/step-review/step-review.component';
 import { StepNonoComponent } from './routes/step-nono-way/step-nono.component';
+import { TransactionsComponent } from './components/transactions/transactions.component';
 
 export const appRoutes: Route[] = [
   { path: '', redirectTo: 'profile', pathMatch: 'full' },
@@ -10,4 +11,5 @@ export const appRoutes: Route[] = [
   { path: 'projects', component: StepProjectsComponent },
   { path: 'review', component: StepReviewComponent },
   { path: 'nono', component: StepNonoComponent },
+  { path: 'transactions', component: TransactionsComponent },
 ];
